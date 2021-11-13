@@ -84,6 +84,7 @@
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox2_Validating);
             // 
             // errorProvider1
             // 

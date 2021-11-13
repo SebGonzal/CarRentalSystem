@@ -13,12 +13,32 @@ namespace CarRentalSystem.Controllers
         public static bool Login(string username, string password)
         {
             Account account = DBConnector.GetUser(username, password);
-            if (Validate(account))
+            bool isUser = Validate(account);
+            if (isUser)
             {
+                DBConnector.SaveLogin(username);
+                if (account.GetActType() == "Employee")
+                {
+                    // code to open ViewAvaialability
+                    return isUser;
+                }
+                else if (account.GetActType() == "Customer")
+                {
+                    // code to open ReserveInitial
+                    List<Vehicle> vehicleInfoList = DBConnector.getVehicles();
+                    foreach (Vehicle v in vehicleInfoList)
+                    {
+                        /*
+                        Console.WriteLine(v.GetVid());
+                        Console.WriteLine(v.GetMake());
+                        Console.WriteLine(v.GetModel());
+                        Console.WriteLine(v.GetYear());
+                        */
+                    }
+                    return isUser;
+                }
             }
-            return Validate(account);
-            
-
+            return isUser;
         }
 
         public static bool Validate(Account acct)

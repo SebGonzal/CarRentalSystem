@@ -39,7 +39,7 @@ namespace CarRentalSystem.Entity
             username = musername;
         }
 
-        public string GetType()
+        public string GetActType()
         {
             return type;
         }

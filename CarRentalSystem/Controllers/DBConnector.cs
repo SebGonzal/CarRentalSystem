@@ -62,6 +62,7 @@ namespace CarRentalSystem.Controllers
                     , [make] TEXT NOT NULL
                     , [model] TEXT NOT NULL
                     , [year] INTEGER NOT NULL
+                    , [year] TEXT NOT NULL
                     , CONSTRAINT [PK_VEHICLE] PRIMARY KEY ([vid])
                     );";
                     cmnd.CommandText = table;
@@ -79,16 +80,22 @@ namespace CarRentalSystem.Controllers
                     cmnd.CommandText = table;
                     cmnd.ExecuteNonQuery();
 
-                    strSql = @"INSERT INTO ACCOUNT VALUES(123, 'seb', 'gon', 'customer')";
+                    strSql = @"INSERT INTO ACCOUNT VALUES(123, 'seb', 'gon', 'Customer')";
                     cmnd.CommandText = strSql;
                     cmnd.ExecuteNonQuery();
 
-
+                    strSql = @"BEGIN TRANSACTION; 
+                    INSERT INTO VEHICLE VALUES(001, 'Ford', 'Mustang', '1984');
+                    INSERT INTO VEHICLE VALUES(002, 'Lamborghini', 'Aventador', '2021');
+                    INSERT INTO VEHICLE VALUES(003, 'Tesla', 'Model X', '2020');
+                    INSERT INTO VEHICLE VALUES(004, 'BMW', 'E30', '1991');
+                    INSERT INTO VEHICLE VALUES(005, 'McLaren', '570S', '2020');
+                    COMMIT;";
+                    cmnd.CommandText = strSql;
+                    cmnd.ExecuteNonQuery();
                     conn.Close();
-
                 }
             }
-        
         }
         public static Account GetUser(string usr, string pwd)
         {
@@ -120,33 +127,109 @@ namespace CarRentalSystem.Controllers
                         Account act = new Account(0, null, null);
                         return act;                       
                     }
-
-                }
-                
+                }  
             }
         }
-        /*
-        public static Vehicle[] getVehicles()
+        
+        public static List<Vehicle> getVehicles()
         {
-            Vehicle[] VehicleInfoList = new Vehicle[8];
-            VehicleInfoList[0] = new Vehicle(345, "ford", "Mustang", "1984");
-            return VehicleInfoList;
+            List<Vehicle> vehicleInfoList = new List<Vehicle>();
+            using (SQLiteConnection conn = new SQLiteConnection(@"data source = nCarDb.db"))
+            {
+
+                using (SQLiteCommand cmnd = new SQLiteCommand())
+                {
+                    conn.Open();
+                    cmnd.Connection = conn;
+                    cmnd.CommandText = "SELECT * FROM VEHICLE;";
+                    using (SQLiteDataReader rdr = cmnd.ExecuteReader())
+                    {
+                        while(rdr.Read())
+                        {
+                            vehicleInfoList.Add(new Vehicle(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetString(3)));
+                        }
+                    }
+                }
+            }
+            return vehicleInfoList;
         }
+
+        /*
         public static Vehicle getVehicle(int vin)
         {
         }
+        */
         public static void SaveLogin(string usr)
-        {
+        {   
+            using (SQLiteConnection conn = new SQLiteConnection(@"data source = nCarDb.db"))
+            {
+                conn.Open();
+                DateTime time = DateTime.Now;
+                string t = time.ToString("s");
+                int x = 0;
+                
+                string stm = "SELECT [id] FROM ACCOUNT WHERE username = ($name);";
+                using (SQLiteCommand cmnd = new SQLiteCommand(stm, conn))
+                {
+                    cmnd.Parameters.AddWithValue("$name", usr);
+                    using (SQLiteDataReader rdr = cmnd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            x = rdr.GetInt32(0);
+                        }
+                    }
+                }
+                stm = @"INSERT INTO LOGIN VALUES($id, $time);";
+                using (SQLiteCommand cmnd = new SQLiteCommand())
+                {
+                    cmnd.Connection = conn;
+                    cmnd.CommandText = stm;
+                    cmnd.Parameters.AddWithValue("$id", x);
+                    cmnd.Parameters.AddWithValue("$time", t);
+                    cmnd.ExecuteNonQuery();
+                }
+            }
         }
+        
         public static bool checkReservation(int vin, DateTime date)
         {
+            return true;
         }
         public static void SaveLogout(string usr)
         {
+            using (SQLiteConnection conn = new SQLiteConnection(@"data source = nCarDb.db"))
+            {
+                conn.Open();
+                DateTime time = DateTime.Now;
+                string t = time.ToString("s");
+                int x = 0;
+                
+                string stm = "SELECT [id] FROM ACCOUNT WHERE username = ($name);";
+                using (SQLiteCommand cmnd = new SQLiteCommand(stm, conn))
+                {
+                    cmnd.Parameters.AddWithValue("$name", usr);
+                    using (SQLiteDataReader rdr = cmnd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            x = rdr.GetInt32(0);
+                        }
+                    }
+                }
+                stm = @"INSERT INTO LOGOUT VALUES($id, $time);";
+                using (SQLiteCommand cmnd = new SQLiteCommand())
+                {
+                    cmnd.Connection = conn;
+                    cmnd.CommandText = stm;
+                    cmnd.Parameters.AddWithValue("$id", x);
+                    cmnd.Parameters.AddWithValue("$time", t);
+                    cmnd.ExecuteNonQuery();
+                }
+            }
         }
         public static void Save(Reservation reservation)
         {
         }
-        */
     }
 }

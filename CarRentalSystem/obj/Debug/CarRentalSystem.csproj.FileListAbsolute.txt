@@ -242,3 +242,4 @@ C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\bin\Debug\System.Dat
 C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\bin\Debug\System.Data.SQLite.xml
 C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.csprojAssemblyReference.cache
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.csprojAssemblyReference.cache
+C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.Boundary.LoginForm.resources

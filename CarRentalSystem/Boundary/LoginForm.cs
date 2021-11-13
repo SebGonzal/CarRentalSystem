@@ -31,6 +31,7 @@ namespace CarRentalSystem.Boundary
         {
             string usr = textBox1.Text;
             string pwd = textBox2.Text;
+
             if (LoginControl.Login(usr, pwd))
             {
                 this.Close();
@@ -48,14 +49,13 @@ namespace CarRentalSystem.Boundary
             MessageBoxButtons button = MessageBoxButtons.OK;
             DialogResult ErrMessage = MessageBox.Show(message, caption, button);
         }
-
         private void textBox1_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
                 e.Cancel = true;
                 textBox1.Focus();
-                errorProvider1.SetError(textBox1, "Name should not be left blank!");
+                errorProvider1.SetError(textBox1, "Username should not be left blank!");
             }
             else
             {
@@ -65,7 +65,7 @@ namespace CarRentalSystem.Boundary
         }
 
         private void textBox2_Validating(object sender, CancelEventArgs e)
-        {
+        {            
             if (string.IsNullOrWhiteSpace(textBox2.Text))
             {
                 e.Cancel = true;
@@ -77,6 +77,6 @@ namespace CarRentalSystem.Boundary
                 e.Cancel = false;
                 errorProvider1.SetError(textBox2, "");
             }
-        }
+        } 
     }
 }

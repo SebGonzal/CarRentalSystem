@@ -21,7 +21,7 @@ namespace CarRentalSystem.Entity
             SetYear(myear);
         }
 
-        public int GetVid(int mvid)
+        public int GetVid()
         {
             return vid;
         }
@@ -31,7 +31,7 @@ namespace CarRentalSystem.Entity
             vid = mvid;
         }
 
-        public string GetMake(string mmake)
+        public string GetMake()
         {
             return make;
         }
@@ -41,24 +41,24 @@ namespace CarRentalSystem.Entity
             make = mmake;
         }
 
-        public string GetModel(string mmodel)
+        public string GetModel()
         {
             return model;
         }
 
         public void SetModel(string mmodel)
         {
-            make = mmodel;
+            model = mmodel;
         }
 
-        public string GetYear(string myear)
+        public string GetYear()
         {
             return year;
         }
 
         public void SetYear(string myear)
         {
-            make = myear;
+            year = myear;
         }
     }
 }
