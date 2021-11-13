@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarRentalSystem.Controllers;
 using CarRentalSystem.Entity;
+using CarRentalSystem.Boundary;
 namespace CarRentalSystem
 {
     static class Program
@@ -15,16 +16,10 @@ namespace CarRentalSystem
         [STAThread]
         static void Main()
         {
-
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new LoginForm());
-            string u = "seb";
-            string p = "gon";
             DBConnector.InitializeDB();
-            Console.WriteLine("hello");
-            LoginControl.Login(u, p);
-            Console.ReadKey();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new LoginForm());
         }
     }
 }

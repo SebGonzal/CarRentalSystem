@@ -19,19 +19,13 @@ namespace CarRentalSystem.Controllers
                 {
                     conn.Open();
                     cmnd.Connection = conn;
-                    string strSql = "DROP TABLE IF EXISTS ACCOUNT";
-                    cmnd.CommandText = strSql;
-                    cmnd.ExecuteNonQuery();
-                    strSql = "DROP TABLE IF EXISTS LOGIN";
-                    cmnd.CommandText = strSql;
-                    cmnd.ExecuteNonQuery();
-                    strSql = "DROP TABLE IF EXISTS LOGOUT";
-                    cmnd.CommandText = strSql;
-                    cmnd.ExecuteNonQuery();
-                    strSql = "DROP TABLE IF EXISTS VEHICLE";
-                    cmnd.CommandText = strSql;
-                    cmnd.ExecuteNonQuery();
-                    strSql = "DROP TABLE IF EXISTS RESERVATION";
+                    string strSql = @"BEGIN TRANSACTION; 
+                    DROP TABLE IF EXISTS ACCOUNT;
+                    DROP TABLE IF EXISTS LOGIN;
+                    DROP TABLE IF EXISTS LOGOUT;
+                    DROP TABLE IF EXISTS VEHICLE;
+                    DROP TABLE IF EXISTS RESERVATION;
+                    COMMIT;";
                     cmnd.CommandText = strSql;
                     cmnd.ExecuteNonQuery();
 
@@ -107,21 +101,24 @@ namespace CarRentalSystem.Controllers
                         ,[password]
                         ,[type]
                         FROM[ACCOUNT]
-                        WHERE[username] == 'seb'
-                        AND[password] == 'gon';"; // need to figure out how to get GetUser(usr,pwd) in query
+                        WHERE[username] == ($name)
+                        AND[password] == ($pd);";
 
                 using (SQLiteCommand cmnd = new SQLiteCommand(stm,conn))
                 {
+                    cmnd.Parameters.AddWithValue("$name", usr);
+                    cmnd.Parameters.AddWithValue("$pd", pwd);
+
                     using (SQLiteDataReader rdr = cmnd.ExecuteReader())
                     {
                         while (rdr.Read())
                         {
                             Account acct = new Account(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(3));
-                            return acct;
+                            return acct;                           
                         }
+
                         Account act = new Account(0, null, null);
-                        return act;
-                        
+                        return act;                       
                     }
 
                 }

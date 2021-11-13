@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarRentalSystem.Entity;
 
-namespace CarRentalSystem
+namespace CarRentalSystem.Boundary
 {
     public partial class ReserveInitial : Form
     {
@@ -20,7 +20,7 @@ namespace CarRentalSystem
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

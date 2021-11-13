@@ -2,7 +2,6 @@ C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalS
 C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.csproj.GenerateResource.cache
 C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.csproj.CoreCompileInputs.cache
 C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.exe.config
-C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.LoginForm.resources
 C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\bin\Debug\x86\sqlite3.dll
 C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\bin\Debug\x64\sqlite3.dll
 C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\bin\Debug\CarRentalSystem.exe.config
@@ -231,14 +230,15 @@ C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\bin\Debug\System
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.exe.config
-C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.LoginForm.resources
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.Properties.Resources.resources
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.csproj.GenerateResource.cache
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.csproj.CoreCompileInputs.cache
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.csproj.CopyComplete
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.exe
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.pdb
-C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.ReserveInitial.resources
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\bin\Debug\System.Data.SQLite.dll
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\bin\Debug\System.Data.SQLite.xml
+C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\bin\Debug\System.Data.SQLite.dll
+C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\bin\Debug\System.Data.SQLite.xml
+C:\Users\0seba\source\repos\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.csprojAssemblyReference.cache
 C:\Users\0seba\Documents\GitHub\CarRentalSystem\CarRentalSystem\obj\Debug\CarRentalSystem.csprojAssemblyReference.cache

@@ -1,4 +1,4 @@
-﻿namespace CarRentalSystem
+﻿namespace CarRentalSystem.Boundary
 {
     partial class ReserveInitial
     {

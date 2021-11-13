@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarRentalSystem.Controllers;
 
-namespace CarRentalSystem
+namespace CarRentalSystem.Boundary
 {
     public partial class LoginForm : Form
     {
@@ -19,25 +19,27 @@ namespace CarRentalSystem
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        { }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        { }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-         
-        }
+        { }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string usr = textBox1.Text;
             string pwd = textBox2.Text;
-            LoginControl.Login(usr, pwd);
+            if (LoginControl.Login(usr, pwd))
+            {
+                this.Close();
+            }
+            else
+            {
+                DisplayError();
+            }
+
         }
         public void DisplayError()
         {
@@ -45,10 +47,6 @@ namespace CarRentalSystem
             string caption = "Input Error";
             MessageBoxButtons button = MessageBoxButtons.OK;
             DialogResult ErrMessage = MessageBox.Show(message, caption, button);
-            if (ErrMessage == DialogResult.OK)
-            {
-                // Need to find out how to close
-            }
         }
 
         private void textBox1_Validating(object sender, CancelEventArgs e)
