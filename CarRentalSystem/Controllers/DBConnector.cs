@@ -61,7 +61,6 @@ namespace CarRentalSystem.Controllers
                     [vid] INTEGER NOT NULL
                     , [make] TEXT NOT NULL
                     , [model] TEXT NOT NULL
-                    , [year] INTEGER NOT NULL
                     , [year] TEXT NOT NULL
                     , CONSTRAINT [PK_VEHICLE] PRIMARY KEY ([vid])
                     );";
