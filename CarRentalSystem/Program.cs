@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarRentalSystem.Controllers;
 using CarRentalSystem.Entity;
+using System.Diagnostics;
+
 namespace CarRentalSystem
 {
     static class Program
@@ -15,12 +17,9 @@ namespace CarRentalSystem
         [STAThread]
         static void Main()
         {
-            /*
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            */
-            DBConnector.InitializeDB();
+
+            StartupControl.Initiate();
+
         }
     }
 }
