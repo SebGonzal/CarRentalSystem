@@ -14,37 +14,37 @@ namespace CarRentalSystem.Entity
 
         public Account(int mid, string musername, string mtype)
         {
-            setId(mid);
-            setUsername(musername);
-            setType(mtype);
+            SetId(mid);
+            SetUsername(musername);
+            SetType(mtype);
         }
-
-        public int getId()
+        
+        public int GetId()
         {
             return id;
         }
 
-        public void setId(int mid)
+        public void SetId(int mid)
         {
             id = mid;
         }
-
-        public string getUsername()
+        
+        public string GetUsername()
         {
             return username;
         }
 
-        public void setUsername(string musername)
+        public void SetUsername(string musername)
         {
             username = musername;
         }
 
-        public string getType()
+        public string GetType()
         {
             return type;
         }
 
-        public void setType(string mtype)
+        public void SetType(string mtype)
         {
             type = mtype;
         }

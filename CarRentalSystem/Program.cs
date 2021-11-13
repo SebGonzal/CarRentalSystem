@@ -15,12 +15,16 @@ namespace CarRentalSystem
         [STAThread]
         static void Main()
         {
-            /*
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            */
+
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new LoginForm());
+            string u = "seb";
+            string p = "gon";
             DBConnector.InitializeDB();
+            Console.WriteLine("hello");
+            LoginControl.Login(u, p);
+            Console.ReadKey();
         }
     }
 }

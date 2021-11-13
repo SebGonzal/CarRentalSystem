@@ -11,14 +11,19 @@ namespace CarRentalSystem.Controllers
     {
         public static bool Login(string username, string password)
         {
-            // Account account = DBConnector.GetUser(username, password);
- 
+            Account account = DBConnector.GetUser(username, password);
+            int x = account.GetId();
+            string y = account.GetUsername();
+            string z = account.GetType();
+            Console.WriteLine(x);
+            Console.WriteLine(y);
+            Console.WriteLine(z);
             return false;
         }
 
         public static void Validate(Account acct)
         {
-
+            
         }
     }
 }
