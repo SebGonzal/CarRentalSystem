@@ -4,7 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarRentalSystem.Controllers;
+<<<<<<< Updated upstream
 using CarRentalSystem.Entity;
+=======
+
+>>>>>>> Stashed changes
 namespace CarRentalSystem
 {
     static class Program
@@ -15,12 +19,17 @@ namespace CarRentalSystem
         [STAThread]
         static void Main()
         {
+<<<<<<< Updated upstream
             /*
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
             */
             DBConnector.InitializeDB();
+=======
+            StartupControl.Initiate();
+
+>>>>>>> Stashed changes
         }
     }
 }
