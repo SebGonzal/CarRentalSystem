@@ -1,5 +1,4 @@
-﻿
-namespace CarRentalSystem
+﻿namespace CarRentalSystem.Boundary
 {
     partial class ReservationForm
     {
@@ -99,6 +98,7 @@ namespace CarRentalSystem
             // 
             this.dateTimePicker_End.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_End.Location = new System.Drawing.Point(110, 390);
+            this.dateTimePicker_End.MinDate = new System.DateTime(2021, 11, 18, 0, 0, 0, 0);
             this.dateTimePicker_End.Name = "dateTimePicker_End";
             this.dateTimePicker_End.Size = new System.Drawing.Size(200, 25);
             this.dateTimePicker_End.TabIndex = 7;
@@ -108,6 +108,7 @@ namespace CarRentalSystem
             this.dateTimePicker_Start.Cursor = System.Windows.Forms.Cursors.Default;
             this.dateTimePicker_Start.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_Start.Location = new System.Drawing.Point(110, 354);
+            this.dateTimePicker_Start.MinDate = new System.DateTime(2021, 11, 18, 0, 0, 0, 0);
             this.dateTimePicker_Start.Name = "dateTimePicker_Start";
             this.dateTimePicker_Start.Size = new System.Drawing.Size(200, 25);
             this.dateTimePicker_Start.TabIndex = 6;

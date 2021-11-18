@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CarRentalSystem.Controllers;
 
-namespace CarRentalSystem
+namespace CarRentalSystem.Boundary
 {
     public partial class ReserveInitial : Form // landing page after user logs in with customer account
     {
@@ -19,7 +19,6 @@ namespace CarRentalSystem
         {
             InitializeComponent();
             instance = this;
-            DBConnector.InitializeDB(); // this will be moved to start up
         }
 
         private void btn_car1_Click(object sender, EventArgs e) // 2021 Honda Civic
@@ -38,6 +37,12 @@ namespace CarRentalSystem
             {
                 ReserveController.View(vid);
             }
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            ReserveInitial.instance.Close();
+            LogoutControl.Logout(LoginControl.thisUser);
         }
     }
 }

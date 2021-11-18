@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using CarRentalSystem.Entity;
 using CarRentalSystem.Controllers;
 
-namespace CarRentalSystem
+namespace CarRentalSystem.Boundary
 {
     public partial class ReservationForm : Form // displays info of selected vehicle, allows user to check and make reservations
     {

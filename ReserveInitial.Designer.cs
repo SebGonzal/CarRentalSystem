@@ -1,5 +1,4 @@
-﻿
-namespace CarRentalSystem
+﻿namespace CarRentalSystem.Boundary
 {
     partial class ReserveInitial
     {
@@ -30,14 +29,16 @@ namespace CarRentalSystem
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_view = new System.Windows.Forms.Button();
+            this.btn_logout = new System.Windows.Forms.Button();
             this.btn_car2 = new System.Windows.Forms.Button();
             this.btn_car1 = new System.Windows.Forms.Button();
-            this.btn_view = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_logout);
             this.groupBox1.Controls.Add(this.btn_view);
             this.groupBox1.Controls.Add(this.btn_car2);
             this.groupBox1.Controls.Add(this.btn_car1);
@@ -48,6 +49,26 @@ namespace CarRentalSystem
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Please select a vehicle and click view to see more information.";
+            // 
+            // btn_view
+            // 
+            this.btn_view.Location = new System.Drawing.Point(344, 327);
+            this.btn_view.Name = "btn_view";
+            this.btn_view.Size = new System.Drawing.Size(89, 49);
+            this.btn_view.TabIndex = 2;
+            this.btn_view.Text = "View";
+            this.btn_view.UseVisualStyleBackColor = true;
+            this.btn_view.Click += new System.EventHandler(this.btn_view_Click);
+            // 
+            // btn_logout
+            // 
+            this.btn_logout.Location = new System.Drawing.Point(653, 22);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(117, 39);
+            this.btn_logout.TabIndex = 3;
+            this.btn_logout.Text = "Logout";
+            this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // btn_car2
             // 
@@ -69,16 +90,6 @@ namespace CarRentalSystem
             this.btn_car1.UseVisualStyleBackColor = true;
             this.btn_car1.Click += new System.EventHandler(this.btn_car1_Click);
             // 
-            // btn_view
-            // 
-            this.btn_view.Location = new System.Drawing.Point(344, 327);
-            this.btn_view.Name = "btn_view";
-            this.btn_view.Size = new System.Drawing.Size(89, 49);
-            this.btn_view.TabIndex = 2;
-            this.btn_view.Text = "View";
-            this.btn_view.UseVisualStyleBackColor = true;
-            this.btn_view.Click += new System.EventHandler(this.btn_view_Click);
-            // 
             // ReserveInitial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -98,6 +109,6 @@ namespace CarRentalSystem
         private System.Windows.Forms.Button btn_car1;
         private System.Windows.Forms.Button btn_car2;
         private System.Windows.Forms.Button btn_view;
+        private System.Windows.Forms.Button btn_logout;
     }
 }
-
