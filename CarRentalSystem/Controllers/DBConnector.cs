@@ -309,37 +309,39 @@ namespace CarRentalSystem.Controllers
             {
                 conn.Open();
                 {
+                    List<Vehicle> V = new List<Vehicle>();
                     SQLiteCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT * FROM Vehicle;";
+
+                    SQLiteDataReader r = cmd.ExecuteReader();
+                        while (r.Read())
+                        {
+
+                            V.Add(new Vehicle(r.GetInt32(0), r.GetString(1), r.GetString(2), r.GetString(3)));
+
+                        }
+                    
+
+                    r.Close();
 
                     cmd.CommandText = "SELECT vid FROM Reservation WHERE (startDate <= "+start
                         +" AND endDate >= "+end
-                        +") OR (startDate <= "+start+ " AND endDate >= "+end
-                        +") OR (startDate > "+start+" AND endDate <"+end+");";
+                        +") OR (startDate >= "+start+ " AND startDate <= "+end
+                        +" AND endDate >= "+end
+                        +") OR (startDate >= "+start+" AND endDate <= "+end+")" +
+                        "OR (startDate <= "+start+" AND endDate <= "+end+" AND endDate >= "+start+");";
 
                     SQLiteDataReader reader = cmd.ExecuteReader();
 
                     reader.Read();
                     List<int> idlist = new List<int>();
-                    foreach (int id in reader)
+                    while (reader.Read())
                     {
                         int vid = reader.GetInt32(0);
                         idlist.Add(vid);
                     }
                     reader.Close();
-                    cmd.CommandText = "SELECT * FROM Vehicle;";
-
-                    SQLiteDataReader r = cmd.ExecuteReader();
-
-                    r.Read();
                     
-
-                    List<Vehicle>  V = new List<Vehicle>();
-                    while (r.Read())
-                    {
-                        V.Add(new Vehicle(r.GetInt32(0), r.GetString(1), r.GetString(2), r.GetString(3)));
-                    }
-                    
-                    r.Close();
                     conn.Close();
                     for (int i = 0; i<idlist.Count;i++)
                     {
