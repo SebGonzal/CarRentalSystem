@@ -4,11 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarRentalSystem.Entity;
-<<<<<<< Updated upstream
-=======
-using System.Windows.Forms;
 using CarRentalSystem.Boundary;
->>>>>>> Stashed changes
+using System.Windows.Forms;
 
 namespace CarRentalSystem.Controllers
 {
@@ -16,19 +13,15 @@ namespace CarRentalSystem.Controllers
     {
         public static bool Login(string username, string password)
         {
-<<<<<<< Updated upstream
-            // Account account = DBConnector.GetUser(username, password);
- 
-            return false;
-=======
             Account account = DBConnector.GetUser(username, password);
             bool isUser = Validate(account);
             if (isUser)
             {
                 DBConnector.SaveLogin(username);
-                if (account.GetActType() == "Employee")
+                if (account.GetActType() == "employee")
                 {
-                    // code to open ViewAvaialability
+                    ViewAvailability viewAvailability = new ViewAvailability();
+                    viewAvailability.Show();
                     return isUser;
                 }
                 else if (account.GetActType() == "customer")
@@ -38,19 +31,11 @@ namespace CarRentalSystem.Controllers
                     return isUser;
                 }
             }
-            else
-            {
-                return isUser;
-            }
             return isUser;
->>>>>>> Stashed changes
         }
 
-        public static void Validate(Account acct)
+        public static bool Validate(Account acct)
         {
-<<<<<<< Updated upstream
-
-=======
             if (acct.GetActType() is null)
             {
                 return false;
@@ -59,7 +44,6 @@ namespace CarRentalSystem.Controllers
             {
                 return true;
             }
->>>>>>> Stashed changes
         }
     }
 }
