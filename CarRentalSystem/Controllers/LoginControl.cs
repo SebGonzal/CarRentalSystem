@@ -11,6 +11,7 @@ namespace CarRentalSystem.Controllers
 {
     public static class LoginControl
     {
+        public static string thisUser;
         public static bool Login(string username, string password)
         {
             Account account = DBConnector.GetUser(username, password);
@@ -18,6 +19,8 @@ namespace CarRentalSystem.Controllers
             if (isUser)
             {
                 DBConnector.SaveLogin(username);
+                thisUser = username;
+
                 if (account.GetActType() == "employee")
                 {
                     ViewAvailability viewAvailability = new ViewAvailability();
