@@ -34,11 +34,7 @@
             this.Enddate = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.Message = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -59,10 +55,11 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "View";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Startdate
             // 
-            this.Startdate.Location = new System.Drawing.Point(64, 94);
+            this.Startdate.Location = new System.Drawing.Point(102, 94);
             this.Startdate.MinDate = new System.DateTime(2021, 11, 18, 0, 0, 0, 0);
             this.Startdate.Name = "Startdate";
             this.Startdate.Size = new System.Drawing.Size(262, 22);
@@ -90,49 +87,17 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(64, 178);
+            this.listBox1.Location = new System.Drawing.Point(274, 178);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(262, 132);
             this.listBox1.TabIndex = 5;
             // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(384, 178);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(263, 132);
-            this.listBox2.TabIndex = 6;
-            // 
             // vScrollBar1
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(307, 178);
+            this.vScrollBar1.Location = new System.Drawing.Point(517, 178);
             this.vScrollBar1.Name = "vScrollBar1";
             this.vScrollBar1.Size = new System.Drawing.Size(19, 132);
             this.vScrollBar1.TabIndex = 7;
-            // 
-            // vScrollBar2
-            // 
-            this.vScrollBar2.Location = new System.Drawing.Point(625, 178);
-            this.vScrollBar2.Name = "vScrollBar2";
-            this.vScrollBar2.Size = new System.Drawing.Size(21, 132);
-            this.vScrollBar2.TabIndex = 8;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(64, 122);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(262, 50);
-            this.textBox2.TabIndex = 9;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(385, 122);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(262, 50);
-            this.textBox3.TabIndex = 10;
             // 
             // Message
             // 
@@ -149,11 +114,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Message);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.vScrollBar2);
             this.Controls.Add(this.vScrollBar1);
-            this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Enddate);
@@ -176,11 +137,7 @@
         private System.Windows.Forms.DateTimePicker Enddate;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.VScrollBar vScrollBar2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label Message;
     }
 }
