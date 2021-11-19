@@ -15,7 +15,8 @@ namespace CarRentalSystem.Controllers
             DBConnector.SaveLogout(username);
 
             // Opens a new login form
-            Application.Run(new LoginForm());
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }
