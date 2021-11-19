@@ -36,6 +36,10 @@ namespace CarRentalSystem.Boundary
             {
                 List<Vehicle> list = AvailControl.checkAvail(startDate, endDate);
                 {
+                    foreach (Vehicle vehicle in list)
+                    {
+                        listBox1.Items.Add(vehicle.GetVid());
+                    }
                     // dateTimePickers are disabled so user can't change dates after reaching "available" state,
                     // can be reset by X'ing out window and reopening
 
@@ -52,14 +56,19 @@ namespace CarRentalSystem.Boundary
                 }
             }
         }
-    
-    public void Submit()
-    {
+        private void button2_Click(object send, EventArgs e)
+        {
+            Display();
+        }
 
-    }
-    private void ViewAvailability_Load(object sender, EventArgs e)
-    {
 
+        public void Submit()
+        {
+
+        }
+        private void ViewAvailability_Load(object sender, EventArgs e)
+        {
+
+        }
     }
-}
 }
