@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CarRentalSystem.Entity;
 using CarRentalSystem.Boundary;
 using System.Data.SQLite;
+using System.Diagnostics;
 
 namespace CarRentalSystem.Controllers
 {
@@ -210,7 +211,17 @@ namespace CarRentalSystem.Controllers
                     SQLiteCommand cmd = conn.CreateCommand();
 
                     // compares vehicle id, startDate, and endDate to user input and selected vehicle to ensure no conflicts
-                    cmd.CommandText = "SELECT 1 FROM RESERVATION WHERE vid = '" + vid + "' AND startDate = '" + inputStart + "' OR vid = '" + vid + "' AND startDate = '" + inputEnd + "' OR vid = '" + vid + "' AND endDate = '" + inputStart + "' OR vid = '" + vid + "' AND endDate = '" + inputEnd + "' OR vid = '" + vid + "' AND startDate < '" + inputStart + "' AND '" + inputStart + "' < endDate OR vid = '" + vid + "' AND startDate < '" + inputEnd + "' AND '" + inputEnd + "' < endDate OR vid = '" + vid + "' AND '" + inputStart + "' < startDate AND '" + inputEnd + "' > endDate;";
+                    cmd.CommandText = "SELECT 1 FROM RESERVATION WHERE vid = '" + vid 
+                        + "' AND startDate = '" + inputStart 
+                        + "' OR vid = '" + vid + "' AND startDate = '" + inputEnd 
+                        + "' OR vid = '" + vid + "' AND endDate = '" + inputStart 
+                        + "' OR vid = '" + vid + "' AND endDate = '" + inputEnd 
+                        + "' OR vid = '" + vid + "' AND startDate < '" + inputStart 
+                        + "' AND '" + inputStart + "' < endDate OR vid = '" + vid 
+                        + "' AND startDate < '" + inputEnd + "' AND '" + inputEnd 
+                        + "' < endDate OR vid = '" + vid + "' AND '" + inputStart 
+                        + "' < startDate AND '" + inputEnd 
+                        + "' > endDate;";
 
                     SQLiteDataReader reader = cmd.ExecuteReader();
 
@@ -232,30 +243,6 @@ namespace CarRentalSystem.Controllers
                 }
             }
         }
-
-        public static List<Vehicle> CheckAvailDates(DateTime startDate, DateTime endDate)
-        {
-            List<Vehicle> availList = new List<Vehicle>();
-            using (SQLiteConnection conn = new SQLiteConnection(@"data source = nCarDb.db"))
-            {
-
-                using (SQLiteCommand cmnd = new SQLiteCommand())
-                {
-                    conn.Open();
-                    cmnd.Connection = conn;
-                    cmnd.CommandText = "SELECT * FROM VEHICLE WHERE reservationStartDate < start AND endDate > end;";
-                    using (SQLiteDataReader rdr = cmnd.ExecuteReader())
-                    {
-                        while (rdr.Read())
-                        {
-                            availList.Add(new Vehicle(rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetString(3)));
-                        }
-                    }
-                }
-            }
-            return availList;
-        }
-
         public static void SaveLogout(string usr)
         {
             using (SQLiteConnection conn = new SQLiteConnection(@"data source = nCarDb.db"))
@@ -315,6 +302,56 @@ namespace CarRentalSystem.Controllers
                 }
             }
         }
-        
+
+        public static List<Vehicle> checkAvailDates(int start, int end)
+        {
+            SQLiteConnection conn = new SQLiteConnection("Data Source = nCarDb.db;");
+            {
+                conn.Open();
+                {
+                    SQLiteCommand cmd = conn.CreateCommand();
+
+                    cmd.CommandText = "SELECT vid FROM Reservation WHERE (startDate <= "+start
+                        +" AND endDate >= "+end
+                        +") OR (startDate <= "+start+ " AND endDate >= "+end
+                        +") OR (startDate > "+start+" AND endDate <"+end+");";
+
+                    SQLiteDataReader reader = cmd.ExecuteReader();
+
+                    reader.Read();
+                    List<int> idlist = new List<int>();
+                    foreach (int id in reader)
+                    {
+                        int vid = reader.GetInt32(0);
+                        idlist.Add(vid);
+                    }
+                    reader.Close();
+                    cmd.CommandText = "SELECT * FROM Vehicle;";
+
+                    SQLiteDataReader r = cmd.ExecuteReader();
+
+                    r.Read();
+                    
+
+                    List<Vehicle>  V = new List<Vehicle>();
+                    while (r.Read())
+                    {
+                        V.Add(new Vehicle(r.GetInt32(0), r.GetString(1), r.GetString(2), r.GetString(3)));
+                    }
+                    
+                    r.Close();
+                    conn.Close();
+                    for (int i = 0; i<idlist.Count;i++)
+                    {
+                        if (idlist[i] == V[i].GetVid())
+                        {
+                            V.RemoveAt(i);
+                        }
+                    }
+                    return V;
+
+                }
+            }
+        }
     }
 }
