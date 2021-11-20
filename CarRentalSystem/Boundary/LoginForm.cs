@@ -35,7 +35,7 @@ namespace CarRentalSystem.Boundary
             if (LoginControl.Login(usr, pwd))
             {
 
-                // this.Close();
+                this.Hide();
             }
             else
             {
@@ -50,34 +50,79 @@ namespace CarRentalSystem.Boundary
             MessageBoxButtons button = MessageBoxButtons.OK;
             DialogResult ErrMessage = MessageBox.Show(message, caption, button);
         }
-        private void textBox1_Validating(object sender, CancelEventArgs e)
+        //private void textBox1_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(textBox1.Text))
+        //    {
+        //        e.Cancel = true;
+        //        textBox1.Focus();
+        //        errorProvider1.SetError(textBox1, "Username should not be left blank!");
+        //    }
+        //    else
+        //    {
+        //        e.Cancel = false;
+        //        errorProvider1.SetError(textBox1, "");
+        //    }
+        //}
+
+        //private void textBox2_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (string.IsNullOrWhiteSpace(textBox2.Text))
+        //    {
+        //        e.Cancel = true;
+        //        textBox2.Focus();
+        //        errorProvider1.SetError(textBox2, "Password should not be left blank!");
+        //    }
+        //    else
+        //    {
+        //        e.Cancel = false;
+        //        errorProvider1.SetError(textBox2, "");
+        //    }
+        //}
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            if(e.KeyCode == Keys.Enter)
             {
-                e.Cancel = true;
-                textBox1.Focus();
-                errorProvider1.SetError(textBox1, "Username should not be left blank!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider1.SetError(textBox1, "");
+                string usr = textBox1.Text;
+                string pwd = textBox2.Text;
+
+                if (LoginControl.Login(usr, pwd))
+                {
+
+                    this.Hide();
+                }
+                else
+                {
+                    DisplayError();
+                }
             }
         }
 
-        private void textBox2_Validating(object sender, CancelEventArgs e)
-        {            
-            if (string.IsNullOrWhiteSpace(textBox2.Text))
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                e.Cancel = true;
-                textBox2.Focus();
-                errorProvider1.SetError(textBox2, "Password should not be left blank!");
+                string usr = textBox1.Text;
+                string pwd = textBox2.Text;
+
+                if (LoginControl.Login(usr, pwd))
+                {
+
+                    this.Hide();
+                }
+                else
+                {
+                    DisplayError();
+                }
             }
-            else
-            {
-                e.Cancel = false;
-                errorProvider1.SetError(textBox2, "");
-            }
-        } 
+        }
+
+        public void CleanForm()
+        {
+            textBox1.Text = String.Empty;
+            textBox2.Text = String.Empty;
+            textBox1.Focus();
+        }
     }
 }

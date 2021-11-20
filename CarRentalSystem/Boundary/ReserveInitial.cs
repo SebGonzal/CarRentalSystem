@@ -19,7 +19,6 @@ namespace CarRentalSystem.Boundary
         {
             InitializeComponent();
             instance = this;
-            // DBConnector.InitializeDB(); this will be moved to start up
         }
 
         private void btn_car1_Click(object sender, EventArgs e) // 2021 Honda Civic
@@ -38,6 +37,17 @@ namespace CarRentalSystem.Boundary
             {
                 ReserveController.View(vid);
             }
+
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            ReserveInitial.instance.Close();
+        }
+
+        private void ReserveInitial_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LogoutControl.Logout(LoginControl.thisUser);
         }
     }
 }

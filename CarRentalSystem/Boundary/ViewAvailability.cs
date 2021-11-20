@@ -70,5 +70,15 @@ namespace CarRentalSystem.Boundary
         {
 
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            ViewAvailability.instance.Close();
+        }
+
+        private void ViewAvailability_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LogoutControl.Logout(LoginControl.thisUser);
+        }
     }
 }
