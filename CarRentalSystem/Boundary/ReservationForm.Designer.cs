@@ -59,9 +59,9 @@
             this.groupBox1.Controls.Add(this.pictureBox_vehicle);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(10, 11);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(581, 345);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -80,7 +80,7 @@
             // 
             this.btn_reserve.Enabled = false;
             this.btn_reserve.Location = new System.Drawing.Point(443, 287);
-            this.btn_reserve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_reserve.Margin = new System.Windows.Forms.Padding(2);
             this.btn_reserve.Name = "btn_reserve";
             this.btn_reserve.Size = new System.Drawing.Size(134, 54);
             this.btn_reserve.TabIndex = 10;
@@ -91,7 +91,7 @@
             // btn_checkDates
             // 
             this.btn_checkDates.Location = new System.Drawing.Point(8, 245);
-            this.btn_checkDates.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_checkDates.Margin = new System.Windows.Forms.Padding(2);
             this.btn_checkDates.Name = "btn_checkDates";
             this.btn_checkDates.Size = new System.Drawing.Size(225, 31);
             this.btn_checkDates.TabIndex = 9;
@@ -103,7 +103,7 @@
             // 
             this.dateTimePicker_End.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_End.Location = new System.Drawing.Point(82, 317);
-            this.dateTimePicker_End.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker_End.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker_End.MinDate = new System.DateTime(2021, 11, 18, 0, 0, 0, 0);
             this.dateTimePicker_End.Name = "dateTimePicker_End";
             this.dateTimePicker_End.Size = new System.Drawing.Size(151, 21);
@@ -114,7 +114,7 @@
             this.dateTimePicker_Start.Cursor = System.Windows.Forms.Cursors.Default;
             this.dateTimePicker_Start.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_Start.Location = new System.Drawing.Point(82, 288);
-            this.dateTimePicker_Start.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker_Start.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker_Start.MinDate = new System.DateTime(2021, 11, 18, 0, 0, 0, 0);
             this.dateTimePicker_Start.Name = "dateTimePicker_Start";
             this.dateTimePicker_Start.Size = new System.Drawing.Size(151, 21);
@@ -175,7 +175,7 @@
             // pictureBox_vehicle
             // 
             this.pictureBox_vehicle.Location = new System.Drawing.Point(4, 27);
-            this.pictureBox_vehicle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox_vehicle.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_vehicle.Name = "pictureBox_vehicle";
             this.pictureBox_vehicle.Size = new System.Drawing.Size(240, 146);
             this.pictureBox_vehicle.TabIndex = 0;
@@ -187,10 +187,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReservationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ReservationForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReservationForm_FormClosed);
             this.Load += new System.EventHandler(this.ReservationForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

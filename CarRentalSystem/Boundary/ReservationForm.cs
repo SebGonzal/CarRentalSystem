@@ -54,11 +54,11 @@ namespace CarRentalSystem.Boundary
         private void btn_checkDates_Click(object sender, EventArgs e)
         {
             // converts default dateTime from dateTimePicker to string, then to int for comparison with date values in database
-            string startString = dateTimePicker_Start.Value.Year.ToString() + dateTimePicker_Start.Value.Month.ToString() + dateTimePicker_Start.Value.ToString("dd");
+            string startString = dateTimePicker_Start.Value.Year.ToString() + dateTimePicker_Start.Value.ToString("MM") + dateTimePicker_Start.Value.ToString("dd");
             int startDate = int.Parse(startString);
 
             // format of these integers is yyyyMMdd (ex: 20211201 = 1 Dec, 2021)
-            string endString = dateTimePicker_End.Value.Year.ToString() + dateTimePicker_End.Value.Month.ToString() + dateTimePicker_End.Value.ToString("dd");
+            string endString = dateTimePicker_End.Value.Year.ToString() + dateTimePicker_End.Value.ToString("MM") + dateTimePicker_End.Value.ToString("dd");
             int endDate = int.Parse(endString);
 
             if (startDate > endDate) // validation to ensure user can't choose endDate earlier than startDate
@@ -90,13 +90,18 @@ namespace CarRentalSystem.Boundary
         private void btn_reserve_Click(object sender, EventArgs e) // clicking reserve button will save reservation to db and close form
         {
             // same date to int conversion as before
-            string startString = dateTimePicker_Start.Value.Year.ToString() + dateTimePicker_Start.Value.Month.ToString() + dateTimePicker_Start.Value.ToString("dd");
+            string startString = dateTimePicker_Start.Value.Year.ToString() + dateTimePicker_Start.Value.ToString("MM") + dateTimePicker_Start.Value.ToString("dd");
             int startDate = int.Parse(startString);
 
-            string endString = dateTimePicker_End.Value.Year.ToString() + dateTimePicker_End.Value.Month.ToString() + dateTimePicker_End.Value.ToString("dd");
+            string endString = dateTimePicker_End.Value.Year.ToString() + dateTimePicker_End.Value.ToString("MM") + dateTimePicker_End.Value.ToString("dd");
             int endDate = int.Parse(endString);
 
             ReserveController.Reserve(ReserveController.selectedVehicle.GetVid(), startDate, endDate);
+        }
+
+        private void ReservationForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ReserveInitial.instance.Show();
         }
     }
 }
