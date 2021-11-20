@@ -16,6 +16,7 @@ namespace CarRentalSystem.Controllers
             selectedVehicle = DBConnector.GetVehicle(vid); // stores selected vehicle info from database
 
             ReservationForm.Display(selectedVehicle); // display ReservationForm to user with selected vehicle info
+            ReserveInitial.instance.Hide();
         }
 
         public static bool CheckReservation(int vid, int start, int end) // "go-between" from check reservation button to database
