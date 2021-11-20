@@ -14,9 +14,9 @@ namespace CarRentalSystem.Controllers
             // Logs the user logout in the database
             DBConnector.SaveLogout(username);
 
-            // Opens a new login form
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
+            // Shows the LoginForm
+            StartupControl.loginForm.CleanForm();
+            StartupControl.loginForm.Show();
         }
     }
 }

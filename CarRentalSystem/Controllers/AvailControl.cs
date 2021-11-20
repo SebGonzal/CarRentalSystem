@@ -8,11 +8,11 @@ namespace CarRentalSystem.Controllers
 {
     class AvailControl
     {
-        public static List<Entity.Vehicle> CheckAvail(DateTime startDate, DateTime endDate)
+        public static List<Entity.Vehicle> checkAvail(int startDate, int endDate)
         {
             List<Entity.Vehicle> availList = new List<Entity.Vehicle>();
 
-            availList = DBConnector.CheckAvailDates(startDate, endDate);
+            availList = DBConnector.checkAvailDates(startDate, endDate);
 
             return availList;
         }

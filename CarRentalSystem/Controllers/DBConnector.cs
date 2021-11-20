@@ -14,7 +14,7 @@ namespace CarRentalSystem.Controllers
     {
         public static void InitializeDB()
         {
-            using(SQLiteConnection conn = new SQLiteConnection(@"data source = nCarDb.db"))
+            using (SQLiteConnection conn = new SQLiteConnection(@"data source = nCarDb.db"))
             {
                 using (SQLiteCommand cmnd = new SQLiteCommand())
                 {
@@ -211,16 +211,16 @@ namespace CarRentalSystem.Controllers
                     SQLiteCommand cmd = conn.CreateCommand();
 
                     // compares vehicle id, startDate, and endDate to user input and selected vehicle to ensure no conflicts
-                    cmd.CommandText = "SELECT 1 FROM RESERVATION WHERE vid = '" + vid 
-                        + "' AND startDate = '" + inputStart 
-                        + "' OR vid = '" + vid + "' AND startDate = '" + inputEnd 
-                        + "' OR vid = '" + vid + "' AND endDate = '" + inputStart 
-                        + "' OR vid = '" + vid + "' AND endDate = '" + inputEnd 
-                        + "' OR vid = '" + vid + "' AND startDate < '" + inputStart 
-                        + "' AND '" + inputStart + "' < endDate OR vid = '" + vid 
-                        + "' AND startDate < '" + inputEnd + "' AND '" + inputEnd 
-                        + "' < endDate OR vid = '" + vid + "' AND '" + inputStart 
-                        + "' < startDate AND '" + inputEnd 
+                    cmd.CommandText = "SELECT 1 FROM RESERVATION WHERE vid = '" + vid
+                        + "' AND startDate = '" + inputStart
+                        + "' OR vid = '" + vid + "' AND startDate = '" + inputEnd
+                        + "' OR vid = '" + vid + "' AND endDate = '" + inputStart
+                        + "' OR vid = '" + vid + "' AND endDate = '" + inputEnd
+                        + "' OR vid = '" + vid + "' AND startDate < '" + inputStart
+                        + "' AND '" + inputStart + "' < endDate OR vid = '" + vid
+                        + "' AND startDate < '" + inputEnd + "' AND '" + inputEnd
+                        + "' < endDate OR vid = '" + vid + "' AND '" + inputStart
+                        + "' < startDate AND '" + inputEnd
                         + "' > endDate;";
 
                     SQLiteDataReader reader = cmd.ExecuteReader();
@@ -314,22 +314,22 @@ namespace CarRentalSystem.Controllers
                     cmd.CommandText = "SELECT * FROM Vehicle;";
 
                     SQLiteDataReader r = cmd.ExecuteReader();
-                        while (r.Read())
-                        {
+                    while (r.Read())
+                    {
 
-                            V.Add(new Vehicle(r.GetInt32(0), r.GetString(1), r.GetString(2), r.GetString(3)));
+                        V.Add(new Vehicle(r.GetInt32(0), r.GetString(1), r.GetString(2), r.GetString(3)));
 
-                        }
-                    
+                    }
+
 
                     r.Close();
 
-                    cmd.CommandText = "SELECT vid FROM Reservation WHERE (startDate <= "+start
-                        +" AND endDate >= "+end
-                        +") OR (startDate >= "+start+ " AND startDate <= "+end
-                        +" AND endDate >= "+end
-                        +") OR (startDate >= "+start+" AND endDate <= "+end+")" +
-                        "OR (startDate <= "+start+" AND endDate <= "+end+" AND endDate >= "+start+");";
+                    cmd.CommandText = "SELECT vid FROM Reservation WHERE (startDate <= " + start
+                        + " AND endDate >= " + end
+                        + ") OR (startDate >= " + start + " AND startDate <= " + end
+                        + " AND endDate >= " + end
+                        + ") OR (startDate >= " + start + " AND endDate <= " + end + ")" +
+                        "OR (startDate <= " + start + " AND endDate <= " + end + " AND endDate >= " + start + ");";
 
                     SQLiteDataReader reader = cmd.ExecuteReader();
 
@@ -341,9 +341,9 @@ namespace CarRentalSystem.Controllers
                         idlist.Add(vid);
                     }
                     reader.Close();
-                    
+
                     conn.Close();
-                    for (int i = 0; i<idlist.Count;i++)
+                    for (int i = 0; i < idlist.Count; i++)
                     {
                         if (idlist[i] == V[i].GetVid())
                         {

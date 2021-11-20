@@ -10,15 +10,14 @@ namespace CarRentalSystem.Controllers
 {
     class StartupControl
     {
+        public static LoginForm loginForm = new LoginForm();
         public static void Initiate()
         {
             // Initializes the database
             DBConnector.InitializeDB();
 
             // Opens the Login Form
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(loginForm);
 
         }
     }
