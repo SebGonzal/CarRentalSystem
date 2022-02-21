@@ -36,11 +36,11 @@ Employee Username: emp<br>
 Employee Password: 2wsx
 
 <p align="center">
-<img src="resources/login.png" alt="Login" width="400" height="263">
+<img src="resources/login.PNG" alt="Login" width="400" height="263">
 <br>
 <br>
-<img src="resources/reserve.png" alt="Reserve" width="400" height="264">
+<img src="resources/reserve.PNG" alt="Reserve" width="400" height="264">
 <br>
 <br>
-<img src="resources/viewavailability.png" alt="View Availability" width="400" height="264">
+<img src="resources/viewavailability.PNG" alt="View Availability" width="400" height="264">
 </p>
