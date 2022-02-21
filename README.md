@@ -27,9 +27,20 @@ Car Rental System was also a group project in Software Engineering at Augusta Un
     <li>Employees can view the availability of the vehicles</li> 
 </ul>
 
+<b>User Credentials</b>
+
+Customer Username: cus<br>
+Customer Password: 1qaz
+
+Employee Username: emp<br>
+Employee Password: 2wsx
+
 <p align="center">
-<img src="Resources/dice.jpg" alt="Dice Page" width="400" height="822">
+<img src="resources/login.png" alt="Login" width="400" height="263">
 <br>
 <br>
-<img src="Resources/history.jpg" alt="History Page" width="400" height="822">
+<img src="resources/reserve.png" alt="Reserve" width="400" height="264">
+<br>
+<br>
+<img src="resources/viewavailability.png" alt="View Availability" width="400" height="264">
 </p>
